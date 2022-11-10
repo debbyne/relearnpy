@@ -3,3 +3,36 @@
       <li>{{ x.firstname }}</li>
     {% endfor %}
   </ul>
+<!-- the if,elif and else keywords/statements -->
+  {% if greeting == 1 %}
+  <h1>Hello</h1>
+{% elif greeting == 2 %}
+  <h1>Welcome</h1>
+{% else %}
+  <h1>Goodbye</h1>
+{% endif %} 
+
+<!-- The reversed keyword is used when you want to do the loop in reversed order. -->
+{% for x in members reversed %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %}  
+
+
+<!-- The empty keyword can be used if you want to do something special if the object is empty. -->
+<ul>
+    {% for x in emptytestobject %}
+      <li>{{ x.firstname }}</li>
+    {% empty %}
+      <li>No members</li>
+    {% endfor %}
+  </ul> 
+
+  <!-- Comments allows you to have sections of code that should be ignored. -->
+  h1>Welcome Everyone</h1>
+{% comment %}
+  <h1>Welcome ladies and gentlemen</h1>
+{% endcomment %}
