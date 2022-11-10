@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from .models import Members
 from django.urls import reverse
+from .models import Members
 
 def index(request):
   mymembers = Members.objects.all().values()
@@ -46,3 +47,10 @@ def updaterecord(request, id):
   member.save()
   return HttpResponseRedirect(reverse('index'))
 
+def testing(request):
+  mymembers = Members.objects.all().values()
+  template = loader.get_template('template.html')
+  context = {
+    'mymembers': mymembers,
+  }
+  return HttpResponse(template.render(context, request))
